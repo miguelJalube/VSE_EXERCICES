@@ -97,7 +97,7 @@ module test_random_tb;
             //cov_b: coverpoint b;
             
             cov_b: coverpoint b{
-                bins petites =    {[0:10000]};
+                bins petites =    {[0:5000]};
                 bins moyennes =   {[20000:50000]};
                 bins grandes =    {[64000:65535]};
             }
@@ -105,12 +105,16 @@ module test_random_tb;
             //cov_c: coverpoint c;
             
             cov_c: coverpoint c{
-                bins petites =    {[0:10000]};
+                bins petites =    {[0:5000]};
                 bins moyennes =   {[20000:50000]};
                 bins grandes =    {[64000:65535]};
             }
             
-            //cov_m: coverpoint m;
+            cov_m: coverpoint m{
+                bins valid[3] = {[0:2]};
+                illegal bins not_valid = {3};
+            }
+
             cov_cross: cross cov_a, cov_b;
         endgroup
         
